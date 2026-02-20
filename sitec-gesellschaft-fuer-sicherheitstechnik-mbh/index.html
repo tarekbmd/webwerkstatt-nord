@@ -1049,9 +1049,13 @@
 
         .contact-grid {
             display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 3rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
             margin-top: 4rem;
+        }
+
+        .contact-form-wrap {
+            grid-row: 1 / 3;
         }
 
         .contact-info {
@@ -1266,6 +1270,160 @@
         }
 
         /* ========================================
+           BESTELL-BLOCK
+        ======================================== */
+        .bestell-block {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, #fff7ed 0%, #fffbeb 100%);
+            border-top: 3px solid var(--accent);
+        }
+        .bestell-inner { max-width: 800px; margin: 0 auto; text-align: center; }
+        .bestell-badge {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            background: var(--accent-light); color: var(--accent);
+            padding: 0.5rem 1.25rem; border-radius: 50px;
+            font-size: 0.85rem; font-weight: 700; margin-bottom: 1.5rem;
+            border: 1px solid rgba(249, 115, 22, 0.2);
+        }
+        .bestell-inner h2 { font-size: 2rem; font-weight: 800; color: var(--primary); margin-bottom: 0.75rem; }
+        .bestell-inner > p { font-size: 1.1rem; color: var(--text-light); margin-bottom: 0.5rem; }
+        .bestell-price { font-size: 1.5rem; font-weight: 800; color: var(--accent); margin-bottom: 0.25rem; }
+        .bestell-price-sub { font-size: 0.92rem; color: var(--text-light); margin-bottom: 2.5rem; }
+        .bestell-features {
+            display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 2.5rem;
+        }
+        .bestell-feature {
+            display: flex; align-items: center; gap: 0.5rem;
+            font-size: 0.92rem; font-weight: 500; color: var(--text);
+        }
+        .bestell-feature svg { width: 20px; height: 20px; color: #16a34a; }
+        .bestell-form {
+            background: white; border-radius: 16px; padding: 2.5rem;
+            border: 1px solid var(--border); box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+            text-align: left; max-width: 500px; margin: 0 auto 2rem;
+        }
+        .bestell-form h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 1.5rem; text-align: center; color: var(--primary); }
+        .bestell-form .form-group { margin-bottom: 1rem; }
+        .bestell-form .form-label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.4rem; color: var(--primary); }
+        .bestell-form .form-input, .bestell-form .form-textarea {
+            width: 100%; padding: 0.85rem 1rem; border: 1px solid var(--border);
+            border-radius: 10px; font-size: 0.95rem; font-family: inherit;
+            transition: border-color 0.2s; background: #f8fafc;
+        }
+        .bestell-form .form-input:focus, .bestell-form .form-textarea:focus {
+            outline: none; border-color: var(--accent);
+        }
+        .bestell-form .form-textarea { min-height: 80px; resize: vertical; }
+        .bestell-form .btn-submit {
+            background: var(--accent); color: white; width: 100%;
+            justify-content: center; font-size: 1.05rem; margin-top: 0.5rem;
+        }
+        .bestell-form .btn-submit:hover { background: var(--accent-hover); }
+        .bestell-oder {
+            display: flex; align-items: center; gap: 1rem;
+            margin: 1.5rem 0; color: #94a3b8; font-size: 0.85rem; font-weight: 500;
+        }
+        .bestell-oder::before, .bestell-oder::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+        .bestell-alt { display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+        .bestell-phone { font-size: 0.95rem; color: var(--text-light); }
+        .bestell-phone a { color: var(--accent); font-weight: 700; text-decoration: none; }
+        .bestell-phone a:hover { text-decoration: underline; }
+
+        /* ============ CONTACT FORM OVERLAY ============ */
+        .contact-form-wrap {
+            background: white; border-radius: 12px; padding: 2.5rem;
+            border: 1px solid var(--border);
+            position: relative; overflow: hidden;
+        }
+        .contact-form-wrap h3 {
+            font-size: 1.3rem; font-weight: 700; margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        .contact-form-wrap > p {
+            color: var(--text-light); margin-bottom: 2rem; font-size: 0.95rem;
+        }
+        .form-row {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        .form-group { margin-bottom: 1rem; }
+        .form-label {
+            display: block; font-size: 0.85rem; font-weight: 600;
+            margin-bottom: 0.4rem; color: var(--primary);
+        }
+        .form-input, .form-textarea {
+            width: 100%; padding: 0.85rem 1rem; border: 1px solid var(--border);
+            border-radius: 10px; font-size: 0.95rem; font-family: inherit;
+            background: #f8fafc;
+        }
+        .form-textarea { min-height: 120px; resize: vertical; }
+        .btn-submit {
+            width: 100%; justify-content: center; font-size: 1.05rem;
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 1rem 2rem; border-radius: 12px;
+            background: var(--accent); color: white;
+            font-weight: 700; border: none; cursor: pointer; font-family: inherit;
+        }
+        .contact-form-overlay {
+            position: absolute; inset: 0; z-index: 10;
+            background: rgba(255,255,255,0.55);
+            backdrop-filter: blur(2px); -webkit-backdrop-filter: blur(2px);
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 12px;
+        }
+        .contact-form-overlay .activate-btn {
+            display: inline-flex; align-items: center; gap: 0.6rem;
+            padding: 1rem 2rem; border-radius: 14px;
+            background: var(--accent); color: white;
+            font-size: 1.05rem; font-weight: 700;
+            text-decoration: none; font-family: inherit;
+            box-shadow: 0 8px 30px rgba(249, 115, 22, 0.4);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            animation: pulse-soft 2.5s ease-in-out infinite;
+        }
+        .contact-form-overlay .activate-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(249, 115, 22, 0.5);
+        }
+        .contact-form-overlay .activate-btn svg { width: 22px; height: 22px; }
+
+        /* ============ ENTWURF FLOATING BANNER ============ */
+        .entwurf-banner {
+            position: fixed; bottom: 0; left: 0; right: 0; z-index: 999;
+            background: var(--bg-dark);
+            box-shadow: 0 -4px 30px rgba(0,0,0,0.2);
+            padding: 0.75rem 2rem;
+        }
+        .entwurf-banner-inner {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+        }
+        .entwurf-banner-text {
+            color: rgba(255,255,255,0.8); font-size: 0.92rem; font-weight: 500;
+        }
+        .entwurf-banner-text strong { color: white; }
+        .entwurf-banner .activate-btn {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 0.7rem 1.5rem; border-radius: 10px;
+            background: var(--accent); color: white;
+            font-size: 0.95rem; font-weight: 700;
+            text-decoration: none; font-family: inherit;
+            white-space: nowrap; flex-shrink: 0;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            animation: pulse-soft 3s ease-in-out infinite;
+        }
+        .entwurf-banner .activate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(249, 115, 22, 0.4);
+        }
+        .entwurf-banner .activate-btn svg { width: 18px; height: 18px; }
+
+        @keyframes pulse-soft {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.4); }
+            50% { box-shadow: 0 0 0 12px rgba(249, 115, 22, 0); }
+        }
+
+        /* ========================================
            RESPONSIVE
         ======================================== */
         @media (max-width: 1024px) {
@@ -1323,6 +1481,10 @@
                 font-size: 16px;
             }
 
+            .header-phone { font-size: 0; gap: 0; }
+            .header-phone svg { width: 24px; height: 24px; }
+            .logo { font-size: 1.05rem; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 50vw; }
+
             nav {
                 display: none;
             }
@@ -1376,6 +1538,11 @@
                 gap: 1rem;
                 text-align: center;
             }
+
+            .entwurf-banner { padding: 0.65rem 1rem; }
+            .entwurf-banner-text { font-size: 0.82rem; }
+            .entwurf-banner .activate-btn { padding: 0.6rem 1.2rem; font-size: 0.88rem; }
+            .form-row { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 480px) {
@@ -1426,6 +1593,9 @@
                 font-size: 1.75rem;
             }
         }
+
+        footer { padding-bottom: 5rem; }
+        .bestell-block { padding-bottom: 8rem; }
     </style>
 </head>
 <body>
@@ -1439,7 +1609,7 @@
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
-                24h Notdienst: +49 40 2840600 - Jetzt anrufen!
+                24h Notdienst: 040 2840600 - Jetzt anrufen!
             </a>
         </div>
         <div class="header-inner">
@@ -1462,7 +1632,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                     </svg>
-                    +49 40 2840600
+                    040 2840600
                 </a>
             </div>
         </div>
@@ -1669,7 +1839,7 @@
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
-                +49 40 2840600 - Jetzt anrufen
+                040 2840600 - Jetzt anrufen
             </a>
         </div>
     </section>
@@ -1923,6 +2093,46 @@
                 <p class="section-subtitle">24 Stunden am Tag, 7 Tage die Woche. Wir sind für Sie da.</p>
             </div>
             <div class="contact-grid">
+                <div class="contact-form-wrap">
+                    <div class="contact-form-overlay">
+                        <a href="#bestellen" class="activate-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                            Website aktivieren
+                        </a>
+                    </div>
+                    <h3>Rückruf anfordern</h3>
+                    <p>Beschreiben Sie Ihr Anliegen und wir melden uns schnellstmöglich.</p>
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Ihr Name *</label>
+                                <input type="text" class="form-input" placeholder="Ihr Name" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Telefon *</label>
+                                <input type="text" class="form-input" placeholder="Ihre Telefonnummer" disabled>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">E-Mail</label>
+                                <input type="text" class="form-input" placeholder="ihre@email.de" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Anliegen</label>
+                                <input type="text" class="form-input" placeholder="Türöffnung / Schloss / Sicherheit" disabled>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Ihre Nachricht</label>
+                            <textarea class="form-textarea" placeholder="Beschreiben Sie kurz Ihr Anliegen..." disabled></textarea>
+                        </div>
+                        <button type="button" class="btn-submit" disabled>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                            Rückruf anfordern
+                        </button>
+                    </form>
+                </div>
                 <div class="contact-info">
                     <h3>SITEC Gesellschaft für Sicherheitstechnik mbH</h3>
                     <p>Schnelle Hilfe bei Türöffnungen, Schlossaustausch und Sicherheitstechnik.</p>
@@ -1948,7 +2158,7 @@
                             <div class="contact-method-text">
                                 <div class="contact-method-label">Telefon (24/7)</div>
                                 <div class="contact-method-value">
-                                    <a href="tel:49402840600">+49 40 2840600</a>
+                                    <a href="tel:49402840600">040 2840600</a>
                                 </div>
                             </div>
                         </div>
@@ -1994,6 +2204,100 @@
     </section>
 
     <!-- ========================================
+         BESTELL-BLOCK
+    ======================================== -->
+    <section class="bestell-block" id="bestellen">
+        <div class="bestell-inner">
+            <div class="bestell-badge">Ihr Entwurf</div>
+            <h2>Gefällt Ihnen die Website?</h2>
+            <p>Dieser Entwurf wurde speziell für SITEC Gesellschaft für Sicherheitstechnik mbH erstellt.</p>
+            <div class="bestell-price">299 &euro;</div>
+            <div class="bestell-price-sub">Einmalig. Kein Abo. Hosting & Domain im 1. Jahr inklusive.</div>
+            <div class="bestell-features">
+                <div class="bestell-feature">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                    Professionelles Design
+                </div>
+                <div class="bestell-feature">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                    Texte & Bilder anpassbar
+                </div>
+                <div class="bestell-feature">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                    Mobilfähig & schnell
+                </div>
+                <div class="bestell-feature">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                    Keine Technik-Kenntnisse nötig
+                </div>
+            </div>
+            <div class="bestell-form">
+                <h3>Interesse? Melden Sie sich.</h3>
+                <form id="orderForm">
+                    <div class="form-group">
+                        <label class="form-label" for="order-name">Ihr Name *</label>
+                        <input type="text" class="form-input" id="order-name" name="name" placeholder="Ihr Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="order-email">E-Mail oder Telefon *</label>
+                        <input type="text" class="form-input" id="order-email" name="email" placeholder="ihre@email.de oder Telefonnummer" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="order-wuensche">Nachricht (optional)</label>
+                        <textarea class="form-textarea" id="order-wuensche" name="wuensche" placeholder="z.B. Gefällt mir, aber andere Farben wären gut..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-accent btn-submit">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                        Anfrage senden
+                    </button>
+                </form>
+            </div>
+            <div class="bestell-oder">oder direkt schreiben</div>
+            <div class="bestell-alt">
+                <a href="https://wa.me/4917643385275?text=Hallo%2C%20ich%20habe%20den%20Website-Entwurf%20f%C3%BCr%20SITEC Gesellschaft für mbH%20gesehen.%20Können%20wir%20kurz%20reden%3F" class="btn-whatsapp" target="_blank" rel="noopener noreferrer">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    Per WhatsApp schreiben
+                </a>
+                <div class="bestell-phone">Oder anrufen: <a href="tel:+494022634400">040 226 34 400</a></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Form JS -->
+    <script>
+    const orderForm = document.getElementById('orderForm');
+    orderForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const btn = orderForm.querySelector('.btn-submit');
+        const origText = btn.innerHTML;
+        btn.innerHTML = 'Wird gesendet...';
+        btn.disabled = true;
+        fetch('https://entwurf-tracker.coffee-recoveryhh.workers.dev/order', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                slug: 'sitec-gesellschaft-fuer-sicherheitstechnik-mbh',
+                name: orderForm.querySelector('#order-name').value,
+                email: orderForm.querySelector('#order-email').value,
+                wuensche: orderForm.querySelector('#order-wuensche').value,
+            }),
+        })
+        .then(r => r.json())
+        .then(data => {
+            btn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg> Bestellung eingegangen!';
+            btn.style.background = '#16a34a';
+            orderForm.reset();
+            setTimeout(() => { btn.innerHTML = origText; btn.style.background = ''; btn.disabled = false; }, 5000);
+        })
+        .catch(() => {
+            btn.innerHTML = 'Fehler - bitte per WhatsApp schreiben';
+            btn.style.background = '#dc2626';
+            setTimeout(() => { btn.innerHTML = origText; btn.style.background = ''; btn.disabled = false; }, 4000);
+        });
+    });
+    </script>
+
+    <!-- ========================================
          FOOTER
     ======================================== -->
     <footer>
@@ -2033,7 +2337,7 @@
                 <div class="footer-col">
                     <h4>Kontakt</h4>
                     <ul>
-                        <li><a href="tel:49402840600">+49 40 2840600</a></li>
+                        <li><a href="tel:49402840600">040 2840600</a></li>
                         <li><a href="mailto:info@sitec-hamburg.de">info@sitec-hamburg.de</a></li>
                         <li>Adlerhorst 7</li>
                         <li>22459 Hamburg</li>
@@ -2049,6 +2353,17 @@
             </div>
         </div>
     </footer>
+
+    <!-- ENTWURF FLOATING BANNER -->
+    <div class="entwurf-banner">
+        <div class="entwurf-banner-inner">
+            <span class="entwurf-banner-text"><strong>Ihr Website-Entwurf</strong> — erstellt für SITEC Gesellschaft für Sicherheitstechnik mbH</span>
+            <a href="#bestellen" class="activate-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                Website aktivieren
+            </a>
+        </div>
+    </div>
 
     <!-- Visit Tracking (no cookies, no JS required) -->
     <img src="https://entwurf-tracker.coffee-recoveryhh.workers.dev/t?s=sitec-gesellschaft-fuer-sicherheitstechnik-mbh" style="position:absolute;left:-9999px" width="1" height="1" alt="">
