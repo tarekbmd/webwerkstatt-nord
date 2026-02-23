@@ -212,19 +212,23 @@
 
         <h2>5. Zugriffsanalyse (Cloudflare Worker)</h2>
         <p>
-            Wir nutzen einen minimalen, selbst betriebenen Analyse-Dienst &uuml;ber einen Cloudflare Worker.
-            Dabei werden folgende Daten erfasst:
+            Wir nutzen einen minimalen, selbst betriebenen Analyse-Dienst &uuml;ber einen Cloudflare Worker,
+            um Seitenaufrufe zu erfassen. Dabei werden folgende Daten verarbeitet:
         </p>
         <ul>
-            <li>Seitenkennung (Slug)</li>
+            <li>Seitenkennung (welche Seite aufgerufen wurde)</li>
             <li>Zeitstempel des Aufrufs</li>
             <li>Referrer (verweisende Seite)</li>
+            <li>Ger&auml;tetyp (Mobil/Desktop, abgeleitet aus dem User-Agent)</li>
+            <li>Ungef&auml;hrer Standort (Stadt, Land &mdash; bereitgestellt durch Cloudflare, keine GPS-Daten)</li>
+            <li>User-Agent (Browser-Kennung)</li>
         </ul>
         <p>
-            Es werden <strong>keine Cookies gesetzt</strong>, <strong>keine IP-Adressen gespeichert</strong>
-            und <strong>keine personenbezogenen Daten erhoben</strong>. Ein R&uuml;ckschluss auf einzelne Personen
-            ist nicht m&ouml;glich. Die Verarbeitung dient ausschlie&szlig;lich der anonymen Auswertung der
-            Seitenaufrufe.
+            Zur Vermeidung von Mehrfachz&auml;hlungen wird ein Hash Ihrer IP-Adresse f&uuml;r maximal
+            <strong>60 Minuten</strong> in einem tempor&auml;ren Speicher (Cloudflare KV) abgelegt und
+            danach automatisch gel&ouml;scht. Es werden <strong>keine Cookies gesetzt</strong>.
+            Die Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der
+            Reichweitenmessung).
         </p>
 
         <h2>6. Kontaktformular</h2>
